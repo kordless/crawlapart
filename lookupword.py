@@ -203,13 +203,14 @@ def f(f_stop,sessionid):
 
 def main():
     print(sys.argv)
-    #time.sleep(4)
+    time.sleep(4)
     define = False
     save_text = False
     video=False
     url=None
     if 'url' in sys.argv:
         url = sys.argv[-1]
+        print(url)
     if 'define' in sys.argv:
         define = True
     else:

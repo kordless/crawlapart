@@ -24,6 +24,7 @@ def main():
     parser.add_argument("-ss", "--screenshot", action="store_false")
     parser.add_argument("--debug", help="add debug informational output", action="store_true")
     args = parser.parse_args()
+    args.screenshot = True
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     

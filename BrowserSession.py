@@ -49,14 +49,17 @@ class BrowserSession:
 
         if self.headless:
             self.config['capabilities']['alwaysMatch']['moz:firefoxOptions']['args'].insert(1,'--headless')
-        self.session = webdriver.Session(self.config['webdriverip'], 
-                           self.config['webdriverport'],
-                           capabilities=self.config['capabilities'])
+            self.config['capabilities']['alwaysMatch']['moz:firefoxOptions']['args'].insert(1,'--height=1080')
+            self.config['capabilities']['alwaysMatch']['moz:firefoxOptions']['args'].insert(1,'--width=1920')
+
+        print(self.config['capabilities'])
+
+        self.session = webdriver.Session(self.config['webdriverip'], self.config['webdriverport'], capabilities=self.config['capabilities'])
         return
 
         
 
-    def go_to_url(self,url=None,fullscreen=False):
+    def go_to_url(self,url=None,fullscreen=True):
 
         if url is None:
             url = self.url 
